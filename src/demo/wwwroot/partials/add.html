@@ -1,12 +1,12 @@
 ﻿<div>
     <p> Add Super Hero</p>
 
-    <form ng-submit="add()">
+    <form name="newHero" ng-submit="add()">
         <label for="name">Name</label>
-        <input ng-model="superhero.Name" name="name" type="text"/>
+        <input ng-model="superhero.Name" ng-required="true" name="name" type="text"/>
 
 
-        <button type="submit">Save</button>
+        <button type="submit" ng-disabled="newHero.$invalid">Save</button>
         <button type="submit" href="/">Cancel</button>
     </form>
 </div>
