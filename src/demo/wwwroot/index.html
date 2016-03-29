@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html ng-app="superHero">
+<head>
+    <base href="/">
+    <meta charset="utf-8" />
+    <title>Super Heros!</title>
+    
+</head>
+<body ng-cloak>
+
+    <div>
+        <ng-view></ng-view>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-resource.js"></script>
+    
+    <script src="app.js"></script>
+
+    <script src="scripts/services/superheroservice.js"></script>
+    <script src="scripts/controllers/superHeroListCtrl.js"></script>
+    <script src="scripts/controllers/superHeroAddCtrl.js"></script>
+    <script src="scripts/controllers/superHeroEditCtrl.js"></script>
+</body>
+</html>
