@@ -6,6 +6,7 @@ using Microsoft.AspNet.Mvc;
 using demo.models;
 using demo.orm;
 using demo.repository;
+using demo.infrastructure;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,14 +15,12 @@ namespace demo.apis
     [Route("api/[controller]")]
     public class SuperHerosController : Controller
     {
-       
-        private readonly UnitOfWork _unitOfWork;
-        SuperHeroRepository<SuperHero> _repository; 
-        public SuperHerosController()
+        
+        private IRepository<SuperHero> _repository { get; set; }
+        
+        public SuperHerosController(IRepository<SuperHero> repo)
         {
-            var helper = new NHibernateConfig();
-            _unitOfWork = new UnitOfWork(helper.SessionFactory);
-            _repository = new SuperHeroRepository<SuperHero>(_unitOfWork.Session);
+            _repository = repo;
         }
 
         // GET: api/superhero

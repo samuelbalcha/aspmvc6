@@ -1,18 +1,27 @@
 ﻿using System;
 using NHibernate;
+using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
+using System.Reflection;
 
 namespace demo.orm
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ISessionFactory _sessionFactory;
+        private static string _connectionString = "Data Source=YULONGRUAN76E6\\SQLEXPRESS; Initial Catalog=SuperHeroDB; Integrated Security=true;";
+
+        private static readonly ISessionFactory _sessionFactory;
         private readonly ITransaction _transaction;
 
         public ISession Session { get; private set; }
 
-        public UnitOfWork(ISessionFactory sessionFactory)
+        static UnitOfWork()
         {
-            _sessionFactory = sessionFactory;
+            _sessionFactory = CreateSessionFactory();
+        }
+
+        public UnitOfWork()
+        {
             Session = _sessionFactory.OpenSession();
             _transaction = Session.BeginTransaction();
         }
@@ -36,6 +45,14 @@ namespace demo.orm
             {
                 _transaction.Rollback();
             }
+        }
+
+        private static ISessionFactory CreateSessionFactory()
+        {
+            return Fluently.Configure()
+                           .Database(MsSqlConfiguration.MsSql2012.ConnectionString(_connectionString))
+                           .Mappings(m => m.FluentMappings.AddFromAssembly(Assembly.GetExecutingAssembly()))
+                           .BuildSessionFactory();
         }
     }
 }

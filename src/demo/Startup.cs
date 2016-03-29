@@ -2,6 +2,10 @@
 using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using demo.infrastructure;
+using demo.repository;
+using demo.models;
+using demo.orm;
 
 namespace demo
 {
@@ -13,6 +17,8 @@ namespace demo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton<IRepository<SuperHero>, SuperHeroRepository<SuperHero>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

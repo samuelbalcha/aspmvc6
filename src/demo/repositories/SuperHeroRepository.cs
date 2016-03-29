@@ -1,4 +1,5 @@
 ﻿using demo.infrastructure;
+using demo.orm;
 using NHibernate;
 using NHibernate.Linq;
 using System;
@@ -10,11 +11,12 @@ namespace demo.repository
 {
     public class SuperHeroRepository<TEntity> : IRepository<TEntity>
     {
-        private readonly ISession _session;
+        private UnitOfWork _unitOfWork;
+        protected ISession _session { get { return _unitOfWork.Session; } }
 
-        public SuperHeroRepository(ISession session)
+        public SuperHeroRepository(IUnitOfWork unitOfWork)
         {
-            _session = session;
+            _unitOfWork = (UnitOfWork)unitOfWork;
         }
 
         public void Add(TEntity entity)
