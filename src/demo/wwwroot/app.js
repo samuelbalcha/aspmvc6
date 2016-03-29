@@ -8,12 +8,9 @@
         }).when('/superheros/add', {
             templateUrl: 'partials/add.html',
             controller: 'superHeroAddCtrl'
-        }).when('/superheros/edit/:id', {
-            templateUrl: 'partials/edit.html',
-            controller: 'superHeroEditCtrl'
-        }).when('/superheros/delete/:id', {
-            templateUrl: 'partials/delete.html',
-            controller: 'superHeroDeleteCtrl'
+        }).when('/superheros/:id', {
+            templateUrl: 'partials/detail.html',
+            controller: 'superHeroDetailCtrl'
         });
         
         $locationProvider.html5Mode(true);

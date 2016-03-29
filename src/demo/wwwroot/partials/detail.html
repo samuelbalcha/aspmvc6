@@ -1,0 +1,17 @@
+﻿<div>
+    <div ng-if="!editMode">
+        <h2>{{  superhero.Name }}</h2>
+
+        <button ng-click="edit()">Edit</button>
+        <a href="/">Back</a>
+    </div>
+    <div ng-if="editMode">
+        <form name="editHero">
+            <input ng-model="superhero.Name" ng-required="true" name="name" type="text" />
+            <button type="submit" ng-disabled="editHero.$invalid" ng-click="save()">Save</button>
+            <button type="submit"  ng-click="delete()">Delete</button>
+
+            <button type="submit" href="/">Cancel</button>
+        </form>
+</div>
+</div>

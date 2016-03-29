@@ -15,9 +15,15 @@
             getSuperHero: function (id) {
                 return $http.get('/api/superheros/' + id);
             },
-            addSuperHero: function (hero) {
+            createSuperHero: function (hero) {
                 return $http.post('/api/superheros', hero);
-            }
+            },
+            updateSuperHero: function (hero) {
+                return $http.put('/api/superheros/'+ hero.Id, hero);
+            },
+            removeSuperHero: function (id) {
+                return $http.delete('/api/superheros/' + id);
+            },
         };
     }
 })();

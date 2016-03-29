@@ -1,8 +1,11 @@
-﻿<div ng-controller="superHeroListCtrl">
+﻿<div>
     <h2>List them</h2>
     <ul>
         <li ng-repeat="hero in superheros">
-            <p> {{  hero.Name }}</p>
+           <a href="/superheros/{{ hero.Id }}">
+               {{  hero.Name }}
+            </a> 
         </li>
     </ul>
+    <a href="/superheros/add">Add Super Hero</a>
 </div>

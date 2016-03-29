@@ -45,7 +45,7 @@ namespace demo.apis
         {
             var exists = _repository.Find(x => x.Name == hero.Name).FirstOrDefault();
             
-            if (exists == null)
+            if (exists == null || hero.Id == 0)
             {
                 _repository.Add(hero);
             }
