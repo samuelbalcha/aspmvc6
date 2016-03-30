@@ -17,6 +17,7 @@
 
         $scope.save = save;
         $scope.addPower = addPower;
+        $scope.cancel = cancel;
 
         function save(){
             superHeroService.createSuperHero($scope.superhero).then(function (response) {
@@ -33,7 +34,10 @@
             else {
                 alert("Power should have a length of 2");
             }
-           
+        }
+
+        function cancel() {
+            $location.path('/');
         }
     }
 })();

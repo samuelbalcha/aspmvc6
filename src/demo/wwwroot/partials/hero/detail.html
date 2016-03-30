@@ -1,5 +1,5 @@
 ﻿<div>
-    <div ng-if="!editMode">
+    <div class="row" ng-if="!editMode">
         <h2>{{  superhero.Name }}</h2>
 
         <p> Powers</p>
@@ -12,7 +12,7 @@
         <button ng-click="edit()">Edit</button>
         <a href="/">Back</a>
     </div>
-    <div ng-if="editMode">
+    <div class="row" ng-if="editMode">
         <form name="editHero">
             <input ng-model="superhero.Name" ng-required="true" name="name" type="text" />
             <button type="submit" ng-disabled="editHero.$invalid" ng-click="save()">Save</button>

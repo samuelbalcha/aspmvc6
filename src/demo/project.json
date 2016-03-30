@@ -13,7 +13,6 @@
     "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
     "Microsoft.Framework.Configuration.Json": "1.0.0-beta8",
     "Microsoft.Framework.Runtime.Abstractions": "1.0.0-beta6"
-    
   },
   "exclude": [
     "wwwroot",

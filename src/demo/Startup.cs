@@ -18,7 +18,8 @@ namespace demo
         {
             services.AddMvc();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddSingleton<IRepository<SuperHero>, SuperHeroRepository<SuperHero>>();
+            services.AddSingleton<IRepository<SuperHero>, SuperHeroGenericRepository<SuperHero>>();
+            services.AddSingleton<IRepository<SuperPower>, SuperHeroGenericRepository<SuperPower>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

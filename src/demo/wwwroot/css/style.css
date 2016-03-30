@@ -1,4 +1,7 @@
-﻿input.ng-invalid.ng-touched {
+﻿body {
+  padding-top: 50px;
+}
+input.ng-invalid.ng-touched {
     background-color : lightcoral;
 }
 input.ng-valid.ng-touched {

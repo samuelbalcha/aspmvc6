@@ -9,12 +9,12 @@ using System.Linq.Expressions;
 
 namespace demo.repository
 {
-    public class SuperHeroRepository<TEntity> : IRepository<TEntity>
+    public class SuperHeroGenericRepository<TEntity> : IRepository<TEntity>
     {
         private UnitOfWork _unitOfWork;
         protected ISession _session { get { return _unitOfWork.Session; } }
 
-        public SuperHeroRepository(IUnitOfWork unitOfWork)
+        public SuperHeroGenericRepository(IUnitOfWork unitOfWork)
         {
             _unitOfWork = (UnitOfWork)unitOfWork;
         }
