@@ -1,11 +1,20 @@
 ﻿<div>
     <p> Add Super Hero</p>
 
-    <form name="newHero" ng-submit="add()">
+    <form name="newHero" ng-submit="save()">
         <label for="name">Name</label>
         <input ng-model="superhero.Name" ng-required="true" name="name" type="text"/>
 
-
+        <p> Powers</p>
+        <ul>
+            <li ng-repeat="power in superhero.Powers">
+                <p> {{ power.Name }}</p>
+            </li>
+        </ul>
+        <div>
+            Add Power: <input ng-model="superpower.Name" ng-required="true" name="power" type="text" />
+            <a href="#" ng-click="addPower()" ng-disabled="superpower.Name.length < 2">Add</a>
+        </div>
         <button type="submit" ng-disabled="newHero.$invalid">Save</button>
         <button type="submit" href="/">Cancel</button>
     </form>

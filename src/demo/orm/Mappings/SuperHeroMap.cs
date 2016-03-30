@@ -8,7 +8,7 @@ namespace demo.orm.Mappings
     {
         public SuperHeroMap()
         {
-            Id<int>(x => x.Id, map => map.Generator(Generators.Identity));
+            Id(x => x.Id, map => map.Generator(Generators.Identity));
             Property(x => x.Name, m => {
                 m.Column(c =>
                 {
@@ -17,7 +17,8 @@ namespace demo.orm.Mappings
                     c.Unique(true);
                 });
             });
-            Bag<SuperPower>(x => x.Powers, cp => { }, cr => cr.OneToMany(x => x.Class(typeof(SuperPower))));
+            Bag(x => x.Powers, cp => { cp.Cascade(Cascade.Persist.Include(Cascade.Remove)); },
+                cr => cr.OneToMany(x => x.Class(typeof(SuperPower))));
         }
     }
 }

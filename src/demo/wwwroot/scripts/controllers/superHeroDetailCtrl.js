@@ -10,6 +10,7 @@
         $scope.superhero = {};
         $scope.edit = edit;
         $scope.save = save;
+        $scope.cancel = cancel;
         $scope.delete = remove;
         $scope.editMode = false;
 
@@ -35,6 +36,7 @@
                 alert(error.data)
             });
         }
+
         function remove() {
            
             superHeroService.removeSuperHero($scope.superhero.Id).then(function (response) {
@@ -42,6 +44,10 @@
             }, function (error) {
                 alert(error.data)
             });
+        }
+
+        function cancel() {
+            $location.path('/');
         }
     }
 

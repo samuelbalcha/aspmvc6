@@ -8,16 +8,15 @@ namespace demo.orm.Mappings
     {
         public SuperPowerMap()
         {
-            Id<int>(x => x.Id, m => m.Generator(Generators.Identity));
+            Id(x => x.Id, m => m.Generator(Generators.Identity));
             Property(x => x.Name, m => {
                 m.Column(c => 
                     {
                         c.Name("Name");
                         c.NotNullable(true);
-                        c.Unique(true);
                     });
             });
-            ManyToOne<SuperHero>(x => x.Hero);
+            ManyToOne(x => x.Hero);
         }
     }
 }

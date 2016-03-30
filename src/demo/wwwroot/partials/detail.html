@@ -2,6 +2,13 @@
     <div ng-if="!editMode">
         <h2>{{  superhero.Name }}</h2>
 
+        <p> Powers</p>
+        <ul>
+            <li ng-repeat="power in superhero.Powers">
+                <p> {{ power.Name }}</p>
+            </li>
+        </ul>
+
         <button ng-click="edit()">Edit</button>
         <a href="/">Back</a>
     </div>
@@ -11,7 +18,7 @@
             <button type="submit" ng-disabled="editHero.$invalid" ng-click="save()">Save</button>
             <button type="submit"  ng-click="delete()">Delete</button>
 
-            <button type="submit" href="/">Cancel</button>
+            <button type="submit" ng-click="cancel()">Cancel</button>
         </form>
 </div>
 </div>
